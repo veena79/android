@@ -1,0 +1,297 @@
+
+activity_main.xml
+
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+tools:context=".MainActivity">
+<TextView
+android:id="@+id/textView"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:gravity="center"
+android:text="Welcome"
+android:textSize="30dp"
+android:textStyle="bold"
+app:layout_constraintBottom_toBottomOf="parent"
+app:layout_constraintHorizontal_bias="0.498"
+app:layout_constraintLeft_toLeftOf="parent"
+app:layout_constraintRight_toRightOf="parent"
+app:layout_constraintTop_toTopOf="parent"
+app:layout_constraintVertical_bias="0.022" />
+<ListView
+android:id="@+id/listview"
+android:layout_width="409dp"
+android:layout_height="wrap_content"
+app:layout_constraintBottom_toBottomOf="parent"
+app:layout_constraintTop_toBottomOf="@+id/textView"
+app:layout_constraintVertical_bias="0.0"
+tools:layout_editor_absoluteX="2dp" />
+<Spinner
+android:id="@+id/spinner"
+android:layout_width="409dp"
+android:layout_height="wrap_content"
+android:layout_marginTop="20dp"
+app:layout_constraintTop_toBottomOf="@+id/listview"
+tools:layout_editor_absoluteX="2dp" />
+<ImageView
+android:id="@+id/image"
+android:layout_width="200dp"
+android:layout_height="150dp"
+android:layout_marginTop="20dp"
+android:visibility="invisible"
+app:layout_constraintStart_toStartOf="parent"
+app:layout_constraintTop_toBottomOf="@+id/spinner"
+app:srcCompat="@drawable/ic_launcher_foreground" />
+<Button
+android:id="@+id/bttn"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:layout_marginStart="10dp"
+android:layout_marginLeft="10dp"
+android:layout_marginTop="80dp"
+android:text="Pay"
+app:layout_constraintStart_toEndOf="@+id/image"
+app:layout_constraintTop_toBottomOf="@+id/spinner" />
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+activity_main2.xml
+
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+tools:context=".Main2Activity">
+<TextView
+android:id="@+id/txt"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:text="Bill"
+android:textSize="50dp"
+android:textStyle="bold"
+app:layout_constraintEnd_toEndOf="parent"
+app:layout_constraintHorizontal_bias="0.463"
+app:layout_constraintStart_toStartOf="parent"
+app:layout_constraintTop_toTopOf="parent" />
+<TextView
+android:id="@+id/textView3"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:layout_marginTop="20dp"
+android:text="Choice:"
+app:layout_constraintStart_toStartOf="parent"
+app:layout_constraintTop_toBottomOf="@+id/txt" />
+<TextView
+android:id="@+id/item"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:layout_marginStart="50dp"
+android:layout_marginLeft="50dp"
+android:layout_marginTop="20dp"
+android:text="TextView"
+app:layout_constraintStart_toEndOf="@+id/textView3"
+app:layout_constraintTop_toBottomOf="@+id/txt" />
+<TextView
+android:id="@+id/textView5"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:layout_marginTop="60dp"
+android:text="Topping:"
+app:layout_constraintStart_toStartOf="parent"
+app:layout_constraintTop_toBottomOf="@+id/txt" />
+<TextView
+android:id="@+id/topping"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:layout_marginStart="50dp"
+android:layout_marginLeft="50dp"
+android:layout_marginTop="60dp"
+android:text="TextView"
+app:layout_constraintStart_toEndOf="@+id/textView5"
+app:layout_constraintTop_toBottomOf="@+id/txt" />
+<TextView
+android:id="@+id/textView7"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:layout_marginTop="100dp"
+android:text="Total"
+app:layout_constraintStart_toStartOf="parent"
+app:layout_constraintTop_toBottomOf="@+id/txt" />
+<TextView
+android:id="@+id/total"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:layout_marginStart="50dp"
+android:layout_marginLeft="50dp"
+android:layout_marginTop="100dp"
+android:text="TextView"
+app:layout_constraintStart_toEndOf="@+id/textView7"
+app:layout_constraintTop_toBottomOf="@+id/txt" />
+<Button
+android:id="@+id/bttn"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:layout_marginTop="160dp"
+android:text="Order Again"
+app:layout_constraintEnd_toEndOf="parent"
+app:layout_constraintStart_toStartOf="parent"
+app:layout_constraintTop_toBottomOf="@+id/txt" />
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+MainActivity.java
+
+package com.example.icecreamshop;
+import androidx.appcompat.app.AppCompatActivity;
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.ListView;
+import android.widget.Spinner;
+import android.widget.Toast;
+public class MainActivity extends AppCompatActivity implements
+AdapterView.OnItemClickListener, View.OnClickListener,
+AdapterView.OnItemSelectedListener {
+ListView listView;
+Spinner spinner;
+ImageView image;
+Button bttn;
+int total;
+Bundle bundle = new Bundle();
+String items[] = {"Puttu Icecream", "Chocolate Brownie", "Green Apple Mojito"};
+String toppings[] = {"Select a topping", "Rainbow Springle", "Chocolate Syrup",
+"Whip Cream"};
+@Override
+protected void onCreate(Bundle savedInstanceState) {
+super.onCreate(savedInstanceState);
+setContentView(R.layout.activity_main);
+listView = (ListView) findViewById(R.id.listview);
+spinner = (Spinner) findViewById(R.id.spinner);
+image = (ImageView) findViewById(R.id.image);
+bttn = (Button) findViewById(R.id.bttn);
+// to set items on list view
+ArrayAdapter<String> adapter1 = new ArrayAdapter<>(this,
+android.R.layout.simple_list_item_1, items);
+listView.setAdapter(adapter1);
+listView.setOnItemClickListener(this);
+// to set items on spinner
+ArrayAdapter<String> adapter2 = new ArrayAdapter <>(this,
+android.R.layout.simple_spinner_item, toppings);
+adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_it
+em);
+spinner.setAdapter(adapter2);
+spinner.setOnItemSelectedListener(this);
+// pay button click
+bttn.setOnClickListener(this);
+}
+@Override
+public void onItemClick(AdapterView<?> parent, View view, int position, long id)
+{
+// Toast.makeText(this, listView.getItemAtPosition(position).toString() + " " +
+position, Toast.LENGTH_LONG).show();
+// to display image based on list click
+if(position == 0) {
+total = 0;
+image.setVisibility(View.VISIBLE);
+image.setImageResource(R.drawable.puttu);
+bundle.putString("Item", "Puttu Icecream");
+total = total + 350;
+} else if (position == 1) {
+total = 0;
+image.setVisibility(View.VISIBLE);
+image.setImageResource(R.drawable.browine);
+bundle.putString("Item", "Chocolate Browine");
+total = total + 200;
+} else if (position == 2) {
+total = 0;
+image.setVisibility(View.VISIBLE);
+image.setImageResource(R.drawable.mojito);
+bundle.putString("Item", "Green Apple Mojito");
+total = total + 80;
+}
+}
+@Override
+public void onClick(View v) {
+Intent i = new Intent(this, Main2Activity.class);
+i.putExtras(bundle);
+startActivity(i);
+}
+@Override
+public void onItemSelected(AdapterView<?> parent, View view, int position, long
+id) {
+// Toast.makeText(this, parent.getItemAtPosition(position).toString() + " " +
+position, Toast.LENGTH_LONG).show();
+// get toppings name and price
+if(position == 1) {
+total = total + 50;
+bundle.putInt("Price", total);
+bundle.putString("Topping", "Rainbow Springle");
+} else if(position == 2) {
+total = total + 60;
+bundle.putInt("Price", total);
+bundle.putString("Topping", "Chocolate Syrup");
+} else if(position == 3) {
+total = total + 10;
+bundle.putInt("Price", total);
+bundle.putString("Topping", "Whip Cream");
+} else if(position == 0) {
+total = total;
+bundle.putInt("Price", total);
+bundle.putString("Topping", "None");
+}
+}
+@Override
+public void onNothingSelected(AdapterView<?> parent) {
+}
+}
+
+Main2Activity.java
+
+
+package com.example.icecreamshop;
+import androidx.appcompat.app.AppCompatActivity;
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
+public class Main2Activity extends AppCompatActivity implements
+View.OnClickListener {
+TextView item, topping, total;
+Button bttn;
+@Override
+protected void onCreate(Bundle savedInstanceState) {
+super.onCreate(savedInstanceState);
+setContentView(R.layout.activity_main2);
+bttn = (Button) findViewById(R.id.bttn);
+item = (TextView) findViewById(R.id.item);
+topping = (TextView) findViewById(R.id.topping);
+total = (TextView) findViewById(R.id.total);
+// getting values from bundle
+Bundle bundle = getIntent().getExtras();
+String a = bundle.getString("Item");
+String b = bundle.getString("Topping");
+int c = bundle.getInt("Price");
+// displaying bundle values
+item.setText(a);
+topping.setText(b);
+total.setText(String.valueOf(c));
+// order again button
+bttn.setOnClickListener(this);
+}
+@Override
+public void onClick(View v) {
+Intent i = new Intent(this, MainActivity.class);
+startActivity(i);
+}
+}

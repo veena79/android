@@ -1,0 +1,132 @@
+activity_main.xml 
+
+<?xml version="1.0" encoding="utf-8"?> 
+<androidx.constraintlayout.widget.ConstraintLayout
+ xmlns:android="http://schemas.android.com/apk/res/android" 
+xmlns:app="http://schemas.android.com/apk/res-auto" 
+xmlns:tools="http://schemas.android.com/tools"
+ android:layout_width="match_parent" 
+android:layout_height="match_parent"
+ android:background="@android:color/holo_blue_bright" 
+<EditText 
+android:id="@+id/etn1"
+ android:layout_width="wrap_content"
+ android:layout_height="wrap_content"
+ android:layout_marginTop="88dp"
+ android:ems="10"
+ android:hint="Enter Number1" 
+android:inputType="numberDecimal"
+ app:layout_constraintBottom_toTopOf="@+id/etn2"
+ app:layout_constraintEnd_toEndOf="parent" 
+app:layout_constraintHorizontal_bias="0.412"
+ app:layout_constraintStart_toStartOf="parent"
+ app:layout_constraintTop_toTopOf="parent"
+ app:layout_constraintVertical_bias="0.0" /> 
+<EditText 
+android:id="@+id/etn2"
+ android:layout_width="wrap_content"
+ android:layout_height="wrap_content"
+ android:layout_marginBottom="484dp"
+ android:ems="10" android:hint="Enter Number2" 
+android:inputType="numberDecimal" 
+app:layout_constraintBottom_toBottomOf="parent"
+ app:layout_constraintEnd_toEndOf="parent"
+ app:layout_constraintHorizontal_bias="0.412"
+ app:layout_constraintStart_toStartOf="parent" /> 
+<TextView
+ android:id="@+id/Result"
+ android:layout_width="wrap_content"
+ android:layout_height="wrap_content"
+ android:text="RESULT"
+ android:textSize="24sp"
+ android:textStyle="bold|italic"
+ app:layout_constraintBottom_toBottomOf="parent"
+ app:layout_constraintEnd_toEndOf="parent"
+ app:layout_constraintHorizontal_bias="0.439"
+ app:layout_constraintStart_toStartOf="parent"
+ app:layout_constraintTop_toBottomOf="@+id/etn2" 
+app:layout_constraintVertical_bias="0.234" />
+ <Button
+ android:id="@+id/sum" 
+android:layout_width="wrap_content"
+ android:layout_height="wrap_content" 
+android:onClick="sum" 
+android:text="sum"
+ app:layout_constraintBottom_toBottomOf="parent"
+ app:layout_constraintEnd_toEndOf="parent"
+ app:layout_constraintHorizontal_bias="0.825"
+ app:layout_constraintStart_toStartOf="parent"
+ app:layout_constraintTop_toBottomOf="@+id/Result" 
+app:layout_constraintVertical_bias="0.07" />
+ <Button android:id="@+id/multi" 
+android:layout_width="wrap_content"
+ android:layout_height="wrap_content"
+ android:onClick="multi"
+ android:text="multi" 
+app:layout_constraintBottom_toBottomOf="parent"
+ app:layout_constraintEnd_toEndOf="parent"
+ app:layout_constraintHorizontal_bias="0.828"
+ app:layout_constraintStart_toStartOf="parent" 
+app:layout_constraintTop_toBottomOf="@+id/sub" 
+app:layout_constraintVertical_bias="0.162" />
+ <Button 
+android:id="@+id/sub"
+ android:layout_width="wrap_content"
+ android:layout_height="wrap_content"
+ android:layout_marginBottom="4dp"
+ android:onClick="sub" android:text="sub"
+ app:layout_constraintBottom_toBottomOf="parent" 
+app:layout_constraintEnd_toEndOf="parent"
+ app:layout_constraintHorizontal_bias="0.828"
+ app:layout_constraintStart_toStartOf="parent"
+ app:layout_constraintTop_toBottomOf="@+id/sum"
+ app:layout_constraintVertical_bias="0.146" />
+ <Button android:id="@+id/div"
+ android:layout_width="wrap_content"
+ android:layout_height="wrap_content"
+ android:onClick="div" 
+android:text="div"
+ app:layout_constraintBottom_toBottomOf="parent" 
+app:layout_constraintEnd_toEndOf="parent" 
+app:layout_constraintHorizontal_bias="0.828"
+ app:layout_constraintStart_toStartOf="parent"
+ app:layout_constraintTop_toBottomOf="@+id/multi"
+ app:layout_constraintVertical_bias="0.46" />
+ </androidx.constraintlayout.widget.ConstraintLayout> 
+
+MainActivity.java 
+
+package com.example.simplecalculator;
+ import androidx.appcompat.app.AppCompatActivity;
+ import android.os.Bundle;
+ import android.view.View;
+ import android.widget.EditText;
+ import android.widget.TextView;
+ public class MainActivity extends AppCompatActivity { 
+private EditText etn1;
+ private EditText etn2; 
+private TextView Result;
+ @Override protected void onCreate(Bundle savedInstanceState) {
+ super.onCreate(savedInstanceState);
+ setContentView(R.layout.activity_main);
+ etn1 = (EditText) findViewById(R.id.etn1); 
+etn2 = (EditText) findViewById(R.id.etn2);
+ Result = (TextView) findViewById(R.id.Result); 
+} public void sum(View View) {
+ int n1 = Integer.parseInt(etn1.getText().toString());
+ int n2 = Integer.parseInt(etn2.getText().toString()); 
+int sum = n1 + n2; Result.setText(String.valueOf(sum));
+ } public void sub(View View) { 
+int n1 = Integer.parseInt(etn1.getText().toString());
+ int n2 = Integer.parseInt(etn2.getText().toString()); 
+int sub = n1 - n2; Result.setText(String.valueOf(sub)); 
+} public void multi(View View) {
+ int n1 = Integer.parseInt(etn1.getText().toString());
+ int n2 = Integer.parseInt(etn2.getText().toString()); 
+int multi = n1 * n2; Result.setText(String.valueOf(multi));
+ } 
+public void div(View View) {
+ int n1 = Integer.parseInt(etn1.getText().toString());
+ int n2 = Integer.parseInt(etn2.getText().toString());
+ int div = n1 / n2; Result.setText(String.valueOf(div)); 
+} }

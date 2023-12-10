@@ -1,0 +1,60 @@
+activity_main.xml
+
+
+<?xml version="1.0" encoding="utf-8"?>
+
+androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent" android:layout_height="match_parent" tools:context="MainActivity">
+
+<EditText
+
+android:id="@+id/username" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="100dp" android:layout_marginTop="50dp" android:ems="10" android hint="username" android:inputType="textPersonName" app:layout_constraint Start_to StartOf="parent" app:layout_constraint Top_to TopOf="parent">
+
+<EditText
+
+android:id="@+id/password" android:layout_width="wrap_content" android: layout height="wrap_content" android:layout_marginStart="100dp" android:layout_marginTop="50dp" android:ems="10" android:hint="password" android inputType="textPassword" app:layout_constraint Start_to StartOf="parent" app:layout_constraint Top_toBottomOf="@+id/username" />
+
+<Button
+
+android:id="@+id/bttn" android:layout_width="wrap_content" android:layout_height="wrap_content"
+ android:layout_marginStart="170dp" android:layout_marginTop="50dp" android onClick="verify" android:text="Login" app:layout constraint Start_to StartOf-"parent" app:layout_constraint Top_toBottomOf-"-id password" androids.constraintlayout widget ConstraintLayout>
+
+
+MainActivity.java
+
+
+package com.example login:
+
+import androidx appcompat.app.AppCompatActivity:
+
+import android.os.Bundle;
+
+import android.view.View;
+
+import android.widget.Burton: import android widget.TextView;
+
+import android.widget.Toast;
+
+public class MainActivity extends AppCompatActivity ( String user "anlin", pass "123"
+
+TextView username, password:
+
+@Override
+
+protected void onCreate(Bundle savedInstanceState) { super.onCreate(savedInstanceState) setContentView(R.layout.activity_main); )
+
+public void verify(View view) {
+
+if(view.getId() R.id.bttn) ( username (TextView) findViewById(R.id.username), password (TextView) findViewById(R.id password): Toast.makeText(this, "Login successful.". Toast.LENGTH_LONG).show();
+
+String a usemame getText() to String();
+
+String password getText().toString();
+
+iffa equals((user)) && b.equals(pass))
+
+else Toast makeText(this, "Login unsuccessful".
+
+Toast.LENGTH LONG).show():
+}
+}
+}
